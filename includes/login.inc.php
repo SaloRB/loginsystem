@@ -7,7 +7,19 @@ if (isset($_POST['login-submit'])) {
     $password = $_POST['pwd'];
 
     if (empty($mailuid) || empty($password)) {
-        # code...
+        header("location: ../index.php?error=emptyfields");
+        exit();
+    } else {
+        $sql = "SELECT * FROM users WHERE uidUsers = ? OR emailUsers = ?;";
+        $stmt = mysqli_stmt_init($conn);
+
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../index.php?error=sqlerror");
+            exit();
+        } else {
+            mysqli_stmt_bind_param($stmt, "ss", $mailuid, $password);
+            mysqli_stmt_execute($stmt);
+        }
     }
 } else {
     header("location: ../index.php");
