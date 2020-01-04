@@ -5,3 +5,7 @@
 .signupsuccess {
     color: green;
 }
+
+.navbar-nav {
+    text-transform: uppercase;
+}

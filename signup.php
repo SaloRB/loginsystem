@@ -26,16 +26,16 @@
         ?>
         <form action="includes/signup.inc.php" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" name="uid" placeholder="Username" value="<?php if (isset($_GET['uid'])) echo $_GET['uid']; ?>">
+                <input type="text" class="form-control text-center" name="uid" placeholder="Username" value="<?php if (isset($_GET['uid'])) echo $_GET['uid']; ?>">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="mail" placeholder="Email" value="<?php if (isset($_GET['mail'])) echo $_GET['mail']; ?>">
+                <input type="text" class="form-control text-center" name="mail" placeholder="Email" value="<?php if (isset($_GET['mail'])) echo $_GET['mail']; ?>">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="pwd" placeholder="Password">
+                <input type="password" class="form-control text-center" name="pwd" placeholder="Password">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="pwd-repeat" placeholder="Repeat Password">
+                <input type="password" class="form-control text-center" name="pwd-repeat" placeholder="Repeat Password">
             </div>
             <div class="form-group text-center">
                 <button type="submit" name="signup-submit" class="btn btn-dark">Sign Up</button>
