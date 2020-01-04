@@ -1,4 +1,8 @@
-<!doctype html>
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,6 +13,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -37,24 +44,32 @@
                     </li>
                 </ul>
             </div>
-            <div>
-                <form class="form-inline" action="includes/login.inc.php" method="post">
-                    <input class="form-control mr-sm-2" type="text" name="mailuid" placeholder="Username/Email...">
-                    <input class="form-control mr-sm-2" type="password" name="pwd" placeholder="Password...">
-                    <button class="btn btn-dark my-2 my-sm-0" type="submit" name="login-submit">Login</button>
-                </form>
-            </div>
+            <?php
+            if (isset($_SESSION['userId'])) {
+                echo '
+                    <div>
+                        <form class="form-inline" action="includes/logout.inc.php" method="post">
+                            <button class="btn btn-dark" type="submit" name="logout-submit">Logout</button>
+                        </form>
+                    </div>
+                    ';
+            } else {
+                echo '
+                    <div>
+                        <form class="form-inline" action="includes/login.inc.php" method="post">
+                            <input class="form-control mr-sm-2" type="text" name="mailuid" placeholder="Username/Email...">
+                            <input class="form-control mr-sm-2" type="password" name="pwd" placeholder="Password...">
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit" name="login-submit">Login</button>
+                        </form>
+                    </div>
 
-            <div>
-                <form class="form-inline">
-                    <a class="btn btn-outline-dark mx-2" href="signup.php">Sign Up</a>
-                </form>
-
-            </div>
-            <div>
-                <form class="form-inline" action="includes/logout.inc.php" method="post">
-                    <button class="btn btn-dark" type="submit" name="logout-submit">Logout</button>
-                </form>
-            </div>
+                    <div>
+                        <form class="form-inline">
+                            <a class="btn btn-outline-dark mx-2" href="signup.php">Sign Up</a>
+                        </form>
+                    </div>
+                    ';
+            }
+            ?>
         </nav>
     </header>
