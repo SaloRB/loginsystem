@@ -41,6 +41,16 @@
                 <button type="submit" name="signup-submit" class="btn btn-dark">Sign Up</button>
             </div>
         </form>
+
+        <?php
+        if (isset($_GET["newpwd"])) {
+            if ($_GET["newpwd"] == "passwordupdated") {
+                echo '<p class="signupsuccess">Your password has been reset!</p>';
+            }
+        }
+        ?>
+
+        <p class="text-center"><a href="reset-password.php" class="text-dark">Forgot your password?</a></p>
     </main>
 </div>
 
